@@ -1,0 +1,4 @@
+image:
+  repository: giantswarm/caicloud-event-exporter
+  tag: v1.0.0
+

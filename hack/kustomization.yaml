@@ -1,0 +1,10 @@
+resources:
+  - https://raw.githubusercontent.com/caicloud/event_exporter/v1.0.0/deploy/deploy.yml
+namespace: "{{ .Release.Namespace }}"
+images:
+  - name: "caicloud/event-exporter"
+    newName: "{{ .Values.image.repository }}"
+    newTag: "{{ .Values.image.tag }}"
+transformers:
+  - ./labels-transformer.yaml
+  - ./matchlabels-transformer.yaml
