@@ -86,7 +86,7 @@ spec:
         prometheus.io/port: {{ .Values.metricsPort | quote }}
         prometheus.io/scrape: "true"
       labels:
-        app: event-exporter
+        app: caicloud-event-exporter
         app.kubernetes.io/instance: {{ .Release.Name }}
         app.kubernetes.io/managed-by: {{ .Release.Service }}
         app.kubernetes.io/name: {{ include "name" . }}
