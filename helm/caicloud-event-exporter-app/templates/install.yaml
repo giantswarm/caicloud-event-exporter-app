@@ -113,3 +113,31 @@ spec:
             memory: 40Mi
       serviceAccountName: event-exporter
       terminationGracePeriodSeconds: 30
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  labels:
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+    app.kubernetes.io/name: {{ include "name" . }}
+    app.kubernetes.io/version: {{ .Chart.AppVersion }}
+    giantswarm.io/service_type: managed
+    helm.sh/chart: {{ include "chart" . }}
+  name: {{ include "name" . }}
+  namespace: {{ .Release.Namespace }}
+spec:
+  egress:
+  - {}
+  ingress:
+  - ports:
+    - port: {{ .metricsPort }}
+      protocol: TCP
+  podSelector:
+    matchLabels:
+      app.kubernetes.io/instance: {{ .Release.Name }}
+      app.kubernetes.io/managed-by: {{ .Release.Service }}
+      app.kubernetes.io/name: {{ include "name" . }}
+  policyTypes:
+  - Egress
+  - Ingress
