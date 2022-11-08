@@ -1,10 +1,10 @@
 # patch metricsPort
 - op: replace
   path: '/spec/ports/0/port'
-  value: '{{ .Values.metricsPort }}'
+  value: '{{ .Values.metricsPort | quote }}'
 - op: replace
   path: '/spec/ports/0/targetPort'
-  value: '{{ .Values.metricsPort }}'
+  value: '{{ .Values.metricsPort | quote }}'
 # remove upstream matchLabels
 - op: remove
   path: '/spec/selector/app'

@@ -1,10 +1,10 @@
 # patch metricsPort
 - op: replace
   path: '/spec/template/spec/containers/0/ports/0/containerPort'
-  value: '{{ .Values.metricsPort }}'
+  value: '{{ .Values.metricsPort | quote }}'
 - op: replace
   path: '/spec/template/metadata/annotations/prometheus.io~1port'
-  value: '{{ .Values.metricsPort }}'
+  value: '{{ .Values.metricsPort | quote }}'
 # add securityContext
 - op: add
   path: '/spec/template/spec/containers/0/securityContext'
