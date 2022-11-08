@@ -5,5 +5,7 @@ metricsPort: 9102
 resources:
   limits:
     memory: 100Mi
+    cpu: 100m
   requests:
     memory: 40Mi
+    cpu: 75m

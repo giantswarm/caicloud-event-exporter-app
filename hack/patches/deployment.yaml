@@ -19,6 +19,12 @@
 - op: replace
   path: '/spec/template/spec/containers/0/resources/requests/memory'
   value: '{{ .Values.resources.requests.memory }}'
+- op: replace
+  path: '/spec/template/spec/containers/0/resources/limits/cpu'
+  value: '{{ .Values.resources.limits.cpu }}'
+- op: replace
+  path: '/spec/template/spec/containers/0/resources/requests/cpu'
+  value: '{{ .Values.resources.requests.cpu }}'
 # set imagePullPolicy
 - op: replace
   path: '/spec/template/spec/containers/0/imagePullPolicy'
