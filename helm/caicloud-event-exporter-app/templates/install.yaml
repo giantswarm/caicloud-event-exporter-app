@@ -49,8 +49,8 @@ metadata:
 spec:
   ports:
   - name: http
-    port: {{ .Values.metricsPort | quote }}
-    targetPort: {{ .Values.metricsPort | quote }}
+    port: {{ .Values.metricsPort }}
+    targetPort: {{ .Values.metricsPort }}
   selector:
     app.kubernetes.io/instance: {{ .Release.Name }}
     app.kubernetes.io/managed-by: {{ .Release.Service }}
@@ -102,7 +102,7 @@ spec:
         imagePullPolicy: IfNotPresent
         name: event-exporter
         ports:
-        - containerPort: {{ .Values.metricsPort | quote }}
+        - containerPort: {{ .Values.metricsPort }}
           name: http
         resources:
           limits:
