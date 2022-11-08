@@ -101,7 +101,7 @@ spec:
         - --eventType=Warning
         - --eventType=Normal
         image: '{{ .Values.image.repository }}:{{ .Values.image.tag }}'
-        imagePullPolicy: Always
+        imagePullPolicy: IfNotPresent
         name: event-exporter
         ports:
         - containerPort: {{ .Values.metricsPort }}

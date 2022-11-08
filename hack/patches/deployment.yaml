@@ -19,3 +19,7 @@
 - op: replace
   path: '/spec/template/spec/containers/0/resources/requests/memory'
   value: '{{ .Values.resources.requests.memory }}'
+# set imagePullPolicy
+- op: replace
+  path: '/spec/template/spec/containers/0/imagePullPolicy'
+  value: IfNotPresent
