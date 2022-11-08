@@ -11,6 +11,7 @@ spec:
         - port: '{{ .metricsPort }}'
           protocol: TCP
   podSelector:
+    # filled by matchlabels-transformer.yaml
     matchLabels: {}
   policyTypes:
     - Egress
