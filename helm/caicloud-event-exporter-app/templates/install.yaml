@@ -96,6 +96,7 @@ spec:
     spec:
       containers:
       - args:
+        - --port={{ .Values.metricsPort }}
         - --eventType=Warning
         - --eventType=Normal
         image: '{{ .Values.image.repository }}:{{ .Values.image.tag }}'
