@@ -1,0 +1,6 @@
+- op: replace
+  path: '/spec/ports/0/port'
+  value: '{{ .Values.metricsPort }}'
+- op: replace
+  path: '/spec/ports/0/targetPort'
+  value: '{{ .Values.metricsPort }}'

@@ -49,8 +49,8 @@ metadata:
 spec:
   ports:
   - name: http
-    port: 9102
-    targetPort: 9102
+    port: {{ .Values.metricsPort }}
+    targetPort: {{ .Values.metricsPort }}
   selector:
     app: event-exporter
     app.kubernetes.io/instance: {{ .Release.Name }}

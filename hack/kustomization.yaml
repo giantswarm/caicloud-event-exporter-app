@@ -18,6 +18,11 @@ patches:
       version: v1
       kind: Deployment
       name: event-exporter
+  - path: patches/service.yaml
+    target:
+      version: v1
+      kind: Service
+      name: event-exporter
 # TODO(kuba):
 # - NetworkPolicy to allow scraping
 # - customizable port in values.yaml
