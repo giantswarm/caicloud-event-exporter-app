@@ -12,8 +12,10 @@ engine: gotpl
 home: https://github.com/giantswarm/caicloud-event-exporter-app
 icon: https://s.giantswarm.io/app-icons/flux/1/dark.svg
 keywords:
-  - gitops
-  - flux
+  - event-exporter
+  - exporter
+  - metrics
+  - crossplane
 name: caicloud-event-exporter-app
 restrictions:
   clusterSingleton: true
