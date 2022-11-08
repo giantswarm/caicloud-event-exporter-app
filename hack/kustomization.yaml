@@ -2,6 +2,8 @@ resources:
   - https://raw.githubusercontent.com/caicloud/event_exporter/v1.0.0/deploy/deploy.yml
   - additional-resources/network-policy.yaml
 namespace: "{{ .Release.Namespace }}"
+# namePrefix differentiates this app from other apps called "event-exporter"
+namePrefix: "caicloud-"
 images:
   - name: "caicloud/event-exporter"
     newName: "{{ .Values.image.repository }}"
