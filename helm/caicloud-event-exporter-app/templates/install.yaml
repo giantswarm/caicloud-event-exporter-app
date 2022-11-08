@@ -52,7 +52,6 @@ spec:
     port: {{ .Values.metricsPort }}
     targetPort: {{ .Values.metricsPort }}
   selector:
-    app: event-exporter
     app.kubernetes.io/instance: {{ .Release.Name }}
     app.kubernetes.io/managed-by: {{ .Release.Service }}
     app.kubernetes.io/name: {{ include "name" . }}
@@ -75,7 +74,6 @@ spec:
   revisionHistoryLimit: 2
   selector:
     matchLabels:
-      app: event-exporter
       app.kubernetes.io/instance: {{ .Release.Name }}
       app.kubernetes.io/managed-by: {{ .Release.Service }}
       app.kubernetes.io/name: {{ include "name" . }}

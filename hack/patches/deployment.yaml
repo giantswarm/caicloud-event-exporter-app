@@ -23,3 +23,6 @@
 - op: replace
   path: '/spec/template/spec/containers/0/imagePullPolicy'
   value: IfNotPresent
+# remove upstream matchLabels
+- op: remove
+  path: '/spec/selector/matchLabels/app'
