@@ -16,4 +16,4 @@ Create chart name and version as used by the chart label.
 {{/*
 Make App Build Suite happy:
 application.giantswarm.io/team: {{ index .Chart.Annotations "application.giantswarm.io/team" | quote }}
-/*}}
+*/}}
