@@ -1,6 +1,21 @@
+# patch metricsPort
 - op: replace
   path: '/spec/template/spec/containers/0/ports/0/containerPort'
   value: '{{ .Values.metricsPort }}'
 - op: replace
   path: '/spec/template/metadata/annotations/prometheus.io~1port'
   value: '{{ .Values.metricsPort }}'
+# add securityContext
+- op: add
+  path: '/spec/template/spec/containers/0/securityContext'
+  value:
+    allowPrivilegeEscalation: false
+    readOnlyRootFilesystem: true
+    runAsUser: 100
+# make resource limits configurable
+- op: replace
+  path: '/spec/template/spec/containers/0/resources/limits/memory'
+  value: '{{ .Values.resources.limits.memory }}'
+- op: replace
+  path: '/spec/template/spec/containers/0/resources/requests/memory'
+  value: '{{ .Values.resources.requests.memory }}'

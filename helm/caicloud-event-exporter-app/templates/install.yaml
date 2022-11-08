@@ -108,9 +108,13 @@ spec:
           name: http
         resources:
           limits:
-            memory: 100Mi
+            memory: {{ .Values.resources.limits.memory }}
           requests:
-            memory: 40Mi
+            memory: {{ .Values.resources.requests.memory }}
+        securityContext:
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: true
+          runAsUser: 100
       serviceAccountName: caicloud-event-exporter
       terminationGracePeriodSeconds: 30
 ---

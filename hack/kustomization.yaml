@@ -24,8 +24,6 @@ patches:
       kind: Service
       name: event-exporter
 # TODO(kuba):
-# - NetworkPolicy to allow scraping
-# - customizable port in values.yaml
 # - pod security context
 # - pod resource limits + vpa
 # - resource name overrides - everything's called "event-exporter", which is bad
