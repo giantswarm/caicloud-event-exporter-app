@@ -1,6 +1,7 @@
 resources:
   - https://raw.githubusercontent.com/caicloud/event_exporter/v1.0.0/deploy/deploy.yml
-  - additional-resources/network-policy.yaml
+  - additional-resources/networkpolicy.yaml
+  - additional-resources/podmonitor.yaml
 namespace: "{{ .Release.Namespace }}"
 # namePrefix differentiates this app from other apps called "event-exporter"
 namePrefix: "caicloud-"
@@ -23,9 +24,3 @@ patches:
       version: v1
       kind: Service
       name: event-exporter
-# TODO(kuba):
-# - pod security context
-# - pod resource limits + vpa
-# - resource name overrides - everything's called "event-exporter", which is bad
-# - PodSecurityPolicy
-# - Prometheus labels on the service AND PodMonitor

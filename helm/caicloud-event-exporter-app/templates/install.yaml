@@ -118,6 +118,30 @@ spec:
       serviceAccountName: caicloud-event-exporter
       terminationGracePeriodSeconds: 30
 ---
+apiVersion: monitoring.coreos.com/v1
+kind: PodMonitor
+metadata:
+  labels:
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+    app.kubernetes.io/name: {{ include "name" . }}
+    app.kubernetes.io/version: {{ .Chart.AppVersion }}
+    giantswarm.io/service_type: managed
+    helm.sh/chart: {{ include "chart" . }}
+  name: caicloud-event-exporter
+  namespace: {{ .Release.Namespace }}
+spec:
+  namespaceSelector:
+    matchNames:
+    - {{ .Release.Namespace }}
+  podMetricsEndpoints:
+  - targetPort: http
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: {{ .Release.Name }}
+      app.kubernetes.io/managed-by: {{ .Release.Service }}
+      app.kubernetes.io/name: {{ include "name" . }}
+---
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:

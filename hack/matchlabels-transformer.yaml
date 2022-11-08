@@ -91,3 +91,7 @@ fieldSpecs:
   create: true
   kind: Service
   version: v1
+- path: spec/selector/matchLabels
+  create: true
+  kind: PodMonitor
+  group: monitoring.coreos.com
