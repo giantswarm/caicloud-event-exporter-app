@@ -85,7 +85,7 @@ spec:
     metadata:
       annotations:
         prometheus.io/path: /metrics
-        prometheus.io/port: "9102"
+        prometheus.io/port: {{ .Values.metricsPort }}
         prometheus.io/scrape: "true"
       labels:
         app: event-exporter

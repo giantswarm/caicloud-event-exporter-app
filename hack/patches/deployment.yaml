@@ -1,3 +1,6 @@
 - op: replace
   path: '/spec/template/spec/containers/0/ports/0/containerPort'
   value: '{{ .Values.metricsPort }}'
+- op: replace
+  path: '/spec/template/metadata/annotations/prometheus.io~1port'
+  value: '{{ .Values.metricsPort }}'
