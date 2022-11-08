@@ -8,7 +8,7 @@ spec:
     - {}
   ingress:
     - ports:
-        - port: '{{ .metricsPort }}'
+        - port: '{{ .Values.metricsPort }}'
           protocol: TCP
   podSelector:
     # filled by matchlabels-transformer.yaml

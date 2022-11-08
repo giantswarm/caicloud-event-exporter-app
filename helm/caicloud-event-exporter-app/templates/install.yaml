@@ -104,7 +104,7 @@ spec:
         imagePullPolicy: Always
         name: event-exporter
         ports:
-        - containerPort: 9102
+        - containerPort: {{ .Values.metricsPort }}
           name: http
         resources:
           limits:
@@ -131,7 +131,7 @@ spec:
   - {}
   ingress:
   - ports:
-    - port: {{ .metricsPort }}
+    - port: {{ .Values.metricsPort }}
       protocol: TCP
   podSelector:
     matchLabels:

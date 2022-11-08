@@ -11,6 +11,13 @@ images:
 transformers:
   - ./labels-transformer.yaml
   - ./matchlabels-transformer.yaml
+patches:
+  - path: patches/deployment.yaml
+    target:
+      group: apps
+      version: v1
+      kind: Deployment
+      name: event-exporter
 # TODO(kuba):
 # - NetworkPolicy to allow scraping
 # - customizable port in values.yaml
