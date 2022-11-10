@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.0] - 2022-11-10
+
 ### Added
 
 - Package upstream version `v1.0.0` as `v0.1.0` of this App.
+
+[0.1.0]: https://github.com/giantswarm/caicloud-event-exporter-app/releases/tag/v0.1.0
