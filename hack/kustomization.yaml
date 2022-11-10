@@ -1,0 +1,26 @@
+resources:
+  - https://raw.githubusercontent.com/caicloud/event_exporter/v1.0.0/deploy/deploy.yml
+  - additional-resources/networkpolicy.yaml
+  - additional-resources/podmonitor.yaml
+namespace: "{{ .Release.Namespace }}"
+# namePrefix differentiates this app from other apps called "event-exporter"
+namePrefix: "caicloud-"
+images:
+  - name: "caicloud/event-exporter"
+    newName: "{{ .Values.image.repository }}"
+    newTag: "{{ .Values.image.tag }}"
+transformers:
+  - ./labels-transformer.yaml
+  - ./matchlabels-transformer.yaml
+patches:
+  - path: patches/deployment.yaml
+    target:
+      group: apps
+      version: v1
+      kind: Deployment
+      name: event-exporter
+  - path: patches/service.yaml
+    target:
+      version: v1
+      kind: Service
+      name: event-exporter

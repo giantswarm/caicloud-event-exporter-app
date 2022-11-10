@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: event-exporter
+  namespace: '{{ .Release.Namespace }}'
+spec:
+  egress:
+    - {}
+  ingress:
+    - ports:
+        - port: '{{ .Values.metricsPort }}'
+          protocol: TCP
+  podSelector:
+    # filled by matchlabels-transformer.yaml
+    matchLabels: {}
+  policyTypes:
+    - Egress
+    - Ingress

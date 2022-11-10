@@ -1,0 +1,11 @@
+image:
+  repository: giantswarm/caicloud-event-exporter
+  tag: v1.0.0
+metricsPort: 9102
+resources:
+  limits:
+    memory: 100Mi
+    cpu: 100m
+  requests:
+    memory: 40Mi
+    cpu: 75m
