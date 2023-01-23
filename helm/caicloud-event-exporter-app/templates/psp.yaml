@@ -1,0 +1,65 @@
+{{- if .Capabilities.APIVersions.Has "policy/v1beta1/PodSecurityPolicy" -}}
+apiVersion: policy/v1beta1
+kind: PodSecurityPolicy
+metadata:
+  name: caicloud-event-exporter
+  labels:
+    {{- include "labels.common" . | indent 4 }}
+spec:
+  privileged: false
+  fsGroup:
+    rule: MustRunAs
+    ranges:
+      - min: 1
+        max: 65535
+  runAsUser:
+    rule: MustRunAsNonRoot
+  runAsGroup:
+    rule: MustRunAs
+    ranges:
+      - min: 1
+        max: 65535
+  seLinux:
+    rule: RunAsAny
+  supplementalGroups:
+    rule: RunAsAny
+  volumes:
+    - 'secret'
+    - 'configMap'
+    - 'emptyDir'
+  allowPrivilegeEscalation: false
+  hostNetwork: false
+  hostIPC: false
+  hostPID: false
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: caicloud-event-exporter-use-psp
+  labels:
+    {{- include "labels.common" . | indent 4 }}
+rules:
+  - apiGroups:
+      - extensions
+    resources:
+      - podsecuritypolicies
+    verbs:
+      - use
+    resourceNames:
+      - caicloud-event-exporter
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: caicloud-event-exporter-use-psp
+  labels:
+    {{- include "labels.common" . | indent 4 }}
+subjects:
+  - kind: ServiceAccount
+    namespace: {{ .Release.Namespace | quote }}
+    name: caicloud-event-exporter
+roleRef:
+  kind: ClusterRole
+  name: caicloud-event-exporter-use-psp
+  apiGroup: rbac.authorization.k8s.io
+{{- end }}
