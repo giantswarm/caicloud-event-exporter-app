@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Custom PSP to make the release CAPI compatible
+
 ## [0.1.0] - 2022-11-10
 
 ### Added
