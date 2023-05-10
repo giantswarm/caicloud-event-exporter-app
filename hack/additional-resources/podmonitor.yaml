@@ -10,4 +10,4 @@ spec:
     # filled by matchlabels-transformer.yaml
     matchLabels: {}
   podMetricsEndpoints:
-    - targetPort: http
+    - port: http
