@@ -10,7 +10,7 @@ description: |
   then translated into metrics.
 engine: gotpl
 home: https://github.com/giantswarm/caicloud-event-exporter-app
-icon: https://s.giantswarm.io/app-icons/flux/1/dark.svg
+icon: https://s.giantswarm.io/app-icons/prometheus/1/light.svg
 keywords:
   - event-exporter
   - exporter
