@@ -1,79 +1,60 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
-  "type": "object",
-  "required": [
-    "image",
-    "metricsPort",
-    "resources"
-  ],
-  "properties": {
-    "image": {
-      "type": "object",
-      "required": [
-        "repository",
-        "tag"
-      ],
-      "properties": {
-        "repository": {
-          "type": "string",
-          "minLength": 1
-        },
-        "tag": {
-          "type": "string",
-          "minLength": 1
-        }
-      },
-      "additionalProperties": false
-    },
-    "metricsPort": {
-      "type": "integer",
-      "additionalProperties": false
-    },
-    "resources": {
-      "type": "object",
-      "required": [
-        "limits",
-        "requests"
-      ],
-      "properties": {
-        "limits": {
-          "type": "object",
-          "required": [
-            "memory"
-          ],
-          "properties": {
-            "memory": {
-              "type": "string"
-            },
-            "cpu": {
-              "type": "string"
+    "$schema": "http://json-schema.org/schema#",
+    "type": "object",
+    "properties": {
+        "global": {
+            "type": "object",
+            "properties": {
+                "podSecurityStandards": {
+                    "type": "object",
+                    "properties": {
+                        "enforced": {
+                            "type": "boolean"
+                        }
+                    }
+                }
             }
-          }
         },
-        "requests": {
-          "type": "object",
-          "required": [
-            "memory"
-          ],
-          "properties": {
-            "memory": {
-              "type": "string"
-            },
-            "cpu": {
-              "type": "string"
+        "image": {
+            "type": "object",
+            "properties": {
+                "repository": {
+                    "type": "string"
+                },
+                "tag": {
+                    "type": "string"
+                }
             }
-          }
+        },
+        "metricsPort": {
+            "type": "integer"
+        },
+        "resources": {
+            "type": "object",
+            "properties": {
+                "limits": {
+                    "type": "object",
+                    "properties": {
+                        "cpu": {
+                            "type": "string"
+                        },
+                        "memory": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "requests": {
+                    "type": "object",
+                    "properties": {
+                        "cpu": {
+                            "type": "string"
+                        },
+                        "memory": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
         }
-      }
-    },
-    "podSecurityStandards": {
-      "type": "object",
-      "properties": {
-        "enforced": {
-          "type": "boolean"
-        }
-      }
     }
-  },
-  "additionalProperties": true
 }
