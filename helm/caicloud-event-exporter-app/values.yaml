@@ -10,5 +10,6 @@ resources:
     memory: 40Mi
     cpu: 75m
 
-podSecurityStandards:
-  enforced: false
+global:
+  podSecurityStandards:
+    enforced: false
