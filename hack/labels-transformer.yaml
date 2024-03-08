@@ -7,7 +7,7 @@ labels:
   app.kubernetes.io/instance: '{{ .Release.Name }}'
   app.kubernetes.io/managed-by: '{{ .Release.Service }}'
   app.kubernetes.io/version: '{{ .Chart.AppVersion }}'
-  giantswarm.io/service_type: 'managed'
+  giantswarm.io/service-type: 'managed'
   helm.sh/chart: '{{ include "chart" . }}'
 # fieldSpecs from https://github.com/kubernetes-sigs/kustomize/blob/a3bf3ba/api/konfig/builtinpluginconsts/commonlabels.go
 # but omits any `matchLabels`. These are handeled by matchlabels-transformer.yaml
