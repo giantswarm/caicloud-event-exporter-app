@@ -8,3 +8,5 @@
 # remove upstream matchLabels
 - op: remove
   path: '/spec/selector/app'
+- op: remove
+  path: /metadata/labels/name
