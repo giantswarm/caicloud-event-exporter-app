@@ -10,9 +10,6 @@ labels:
 # but omits only `matchLabels`. Also check labels-transformer.yaml
 # update if neccessary!
 fieldSpecs:
-- path: spec/selector/matchLabels
-  create: true
-  kind: Deployment
 - path: spec/template/spec/affinity/podAffinity/preferredDuringSchedulingIgnoredDuringExecution/podAffinityTerm/labelSelector/matchLabels
   create: false
   group: apps
@@ -95,3 +92,15 @@ fieldSpecs:
   create: true
   kind: PodMonitor
   group: monitoring.coreos.com
+---
+apiVersion: builtin
+kind: LabelTransformer
+metadata:
+  name: labels-transformer-deployment-selector
+labels:
+  gsmt: '{{ include "labels.selector" . | indent 6 }}'
+fieldSpecs:
+- path: spec/selector/matchLabels
+  create: true
+  version: v1
+  kind: Deployment

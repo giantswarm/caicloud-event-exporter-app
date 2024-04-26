@@ -24,3 +24,15 @@ patches:
       version: v1
       kind: Service
       name: event-exporter
+  - path: patches/clusterrolebinding.yaml
+    target:
+      version: v1
+      kind: ClusterRoleBinding
+      name: event-exporter
+  - patch: |-
+      - op: remove
+        path: /metadata/labels/name
+    target:
+      version: v1
+      kind: ServiceAccount
+      name: event-exporter

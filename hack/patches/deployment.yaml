@@ -12,9 +12,15 @@
 - op: add
   path: '/spec/template/spec/containers/0/securityContext'
   value:
+    capabilities:
+      drop:
+      - ALL
+    runAsNonRoot: true
     allowPrivilegeEscalation: false
     readOnlyRootFilesystem: true
     runAsUser: 100
+    seccompProfile:
+      type: RuntimeDefault
 # make resource limits configurable
 - op: replace
   path: '/spec/template/spec/containers/0/resources/limits/memory'
@@ -36,6 +42,7 @@
 - op: remove
   path: '/spec/selector/matchLabels/app'
 # update upstream 'app' label
-- op: replace
+- op: remove
   path: '/spec/template/metadata/labels/app'
-  value: caicloud-event-exporter
+- op: remove
+  path: '/metadata/labels/name'

@@ -82,8 +82,14 @@ spec:
             memory: {{ .Values.resources.requests.memory }}
         securityContext:
           allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - ALL
           readOnlyRootFilesystem: true
+          runAsNonRoot: true
           runAsUser: 100
+          seccompProfile:
+            type: RuntimeDefault
       serviceAccountName: caicloud-event-exporter
       terminationGracePeriodSeconds: 30
 ---
