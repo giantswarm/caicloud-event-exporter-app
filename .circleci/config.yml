@@ -5,16 +5,20 @@ orbs:
 workflows:
   package-and-push-chart-on-tag:
     jobs:
-      - architect/push-to-app-catalog:
-          context: "architect"
-          executor: "app-build-suite"
-          name: "package and push caicloud-event-exporter-app chart"
-          app_catalog: "control-plane-catalog"
-          app_catalog_test: "control-plane-test-catalog"
-          chart: "caicloud-event-exporter-app"
-          persist_chart_archive: true
+    - architect/push-to-app-catalog:
+        context: architect
+        executor: app-build-suite
+        name: package and push caicloud-event-exporter-app chart
+        app_catalog: control-plane-catalog
+        app_catalog_test: control-plane-test-catalog
+        chart: caicloud-event-exporter-app
+        persist_chart_archive: true
           # Trigger job on git tag.
-          filters:
-            tags:
-              only: /^v.*/
-          push_to_oci_registry: true
+        filters:
+          tags:
+            only: /^v.*/
+          branches:
+            ignore:
+            - main
+            - master
+        push_to_oci_registry: true
