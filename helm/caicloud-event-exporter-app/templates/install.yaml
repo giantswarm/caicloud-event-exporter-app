@@ -67,7 +67,7 @@ spec:
         - --port={{ .Values.metricsPort }}
         - --eventType=Warning
         - --eventType=Normal
-        image: '{{ .Values.image.repository }}:{{ .Values.image.tag }}'
+        image: '{{ .Values.image.registry }}/{{ .Values.image.repository }}:{{ .Values.image.tag }}'
         imagePullPolicy: IfNotPresent
         name: event-exporter
         ports:
