@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Migrate Chart.yaml annotations to new format as per https://docs.giantswarm.io/reference/platform-api/chart-metadata/
+
 ## [0.2.3] - 2025-08-26
 
 ### Added
@@ -56,6 +60,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Package upstream version `v1.0.0` as `v0.1.0` of this App.
 
 [Unreleased]: https://github.com/giantswarm/caicloud-event-exporter-app/compare/v0.2.3...HEAD
+
+### Changed
+
+- Migrate Chart.yaml annotations to new format as per https://docs.giantswarm.io/reference/platform-api/chart-metadata/
 [0.2.3]: https://github.com/giantswarm/caicloud-event-exporter-app/compare/v0.2.2...v0.2.3
 [0.2.2]: https://github.com/giantswarm/caicloud-event-exporter-app/compare/v0.2.1...v0.2.2
 [0.2.1]: https://github.com/giantswarm/caicloud-event-exporter-app/compare/v0.2.0...v0.2.1

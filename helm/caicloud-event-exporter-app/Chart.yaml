@@ -1,25 +1,28 @@
 apiVersion: v2
 appVersion: 1.0.0
 annotations:
-  application.giantswarm.io/team: honeybadger
-  application.giantswarm.io/two-step-install: "false"
-description: |
-  Kubernetes events to Prometheus bridge.
+  application.giantswarm.io/two-step-install: 'false'
+  io.giantswarm.application.restrictions.cluster-singleton: 'true'
+  io.giantswarm.application.team: honeybadger
+description: 'Kubernetes events to Prometheus bridge.
+
   A Collector that can list and watch Kubernetes events, and according to
-  events' occurrence, determine how long the event lasts. The information is
+
+  events'' occurrence, determine how long the event lasts. The information is
+
   then translated into metrics.
+
+  '
 engine: gotpl
 home: https://github.com/giantswarm/caicloud-event-exporter-app
 icon: https://s.giantswarm.io/app-icons/prometheus/1/light.svg
 keywords:
-  - event-exporter
-  - exporter
-  - metrics
-  - crossplane
+- event-exporter
+- exporter
+- metrics
+- crossplane
 name: caicloud-event-exporter-app
-restrictions:
-  clusterSingleton: true
 sources:
-  - https://github.com/caicloud/event_exporter
+- https://github.com/caicloud/event_exporter
 type: application
 version: 0.2.3
